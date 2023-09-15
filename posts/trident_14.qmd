@@ -1,8 +1,10 @@
 ---
-title: "Trident Updates"
+title: "Trident's restaurant - your order please?"
 author: "Stephan Schiffels"
-date: "2023-09-14"
+date: "2023-09-11"
+date-modified: "2023-09-15"
 categories: [news]
+image: ../jay-wennington-N_Y88TWmGwA-unsplash.jpg
 ---
 
 Today we're releasing a new major release for trident, our command-line tool and workhorse for working with Poseidon packages.
@@ -35,4 +37,4 @@ The exact semantics of this forge-machinery are quite complex and powerful, and 
 
 So `*2022_Gretzinger_AngloSaxons-1.2.1*` works, and `<2022_Gretzinger_AngloSaxons-1.2.1:England_EMA:EAS006>` works as well. 
 
-
+There was quite a bunch of refactoring of code that needed to happen under the hood to make this update possible, in particular in relation to supporting multiple versions of packages. This update will bring us a good step closer to making archaeoenetics analyses truly reproducible, as older versions of packages will continue to be served on our servers (which we will post about separately). 
