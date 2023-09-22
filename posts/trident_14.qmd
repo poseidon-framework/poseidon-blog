@@ -1,11 +1,13 @@
 ---
 title: "Trident's restaurant - your order please?"
 author: "Stephan Schiffels"
-date: "2023-09-11"
-date-modified: "2023-09-15"
+date: "2023-09-22"
 categories: [news]
-image: ../jay-wennington-N_Y88TWmGwA-unsplash.jpg
+description: A new update of trident, improved semantics of forge queries
+draft: true
 ---
+
+![Image by Unsplash](../jay-wennington-N_Y88TWmGwA-unsplash.jpg)
 
 Today we're releasing a new major release for trident, our command-line tool and workhorse for working with Poseidon packages.
 

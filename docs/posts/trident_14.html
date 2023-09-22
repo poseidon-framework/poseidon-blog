@@ -7,7 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Stephan Schiffels">
-<meta name="dcterms.date" content="2023-09-11">
+<meta name="dcterms.date" content="2023-09-22">
+<meta name="description" content="A new update of trident, improved semantics of forge queries">
 
 <title>Poseidon Blog - Trident’s restaurant - your order please?</title>
 <style>
@@ -37,10 +38,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,9 +72,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../Poseidon-Avatar-White-BgSml.jpg" alt="" class="navbar-logo">
-    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Poseidon Blog</span>
     </a>
@@ -82,9 +80,14 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../about.html">About</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.poseidon-adna.org"><img width="30em" src="../Poseidon-Avatar-White-BgSml.jpg"> Poseidon-Website</a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/poseidon-framework"><i class="bi bi-github" role="img">
@@ -118,6 +121,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
   </div>
 
+<div>
+  <div class="description">
+    A new update of trident, improved semantics of forge queries
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -132,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 11, 2023</p>
+      <p class="date">September 22, 2023</p>
     </div>
   </div>
     
@@ -141,6 +149,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../jay-wennington-N_Y88TWmGwA-unsplash.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image by Unsplash</figcaption><p></p>
+</figure>
+</div>
 <p>Today we’re releasing a new major release for trident, our command-line tool and workhorse for working with Poseidon packages.</p>
 <p>If you haven’t checked it out yet, take a look [at our documentation]. With <code>trident</code>, you can download packages from our web-server, initialise new packages, perform validations, list summaries of packages, and - most importantly - forge new packages out of existing ones.</p>
 <p>This functionality, <code>forge</code> is more than a merge, and more than a subset tool. It is both. Perhaps a working analogy for what it does is a restaurant. At a restaurant, you order a specific meal, but you don’t care how the ingredients have been packaged, and with which other ingredients they are stored. You just want the chefs to assmble the meal, no matter whether the beans are stored together with the peas or not.</p>

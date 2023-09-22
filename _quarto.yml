@@ -5,10 +5,16 @@ project:
 website:
   title: "Poseidon Blog"
   navbar:
-    logo: Poseidon-Avatar-White-BgSml.jpg
-    right:
+    left:
       - about.qmd
+    right:
+      - href: https://www.poseidon-adna.org
+        text: <img width=30em src='/Poseidon-Avatar-White-BgSml.jpg'>      Poseidon-Website
       - icon: github
         href: https://github.com/poseidon-framework
       - icon: mastodon
         href: https://ecoevo.social/@poseidon
+
+format:
+  html: 
+    theme: solar

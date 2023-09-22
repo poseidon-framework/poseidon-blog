@@ -1,0 +1,15 @@
+---
+title: "Welcome to the Poseidon-Blog"
+author: "Stephan Schiffels"
+date: "2023-09-22"
+categories: [news]
+description: A new update of xerxes, more statistics and documentation
+---
+
+![](../Poseidon-Avatar-White-BgSml.jpg)
+
+Welcome to the Poseidon Blog. This is a place where the core developer team posts news, tutorials, or insights about the [Poseidon Ecosystem](https://www.poseidon-adna.org). We welcome feedback to our posts, which you can give via [Mastodon](https://ecoevo.social/@poseidon) and our [Slack Channel](https://join.slack.com/t/poseidon-8el7276/shared_invite/zt-14q2wxxmf-pbtNtm5E9DFJbjioyfAyMg).
+
+Poseidon has been a project developed internally at the [Max Planck Institute for Evolutionary Anthropology](https://www.mpg.de/de), and is partially funded by the [ERC-project MICROSCOPE](https://www.eva.mpg.de/archaeogenetics/projects/microscope/).
+
+Our core mission is to make the growing field of archaeogenetics more [FAIR] and open, and to make data analysis of archaeogenetic data more widely and multidisciplinarily applicable. To this end, we intend to provide teaching material, make data available in standardised formats, and provide well-documented tools. Stay tuned for more development, and follow us on [Mastodon](https://ecoevo.social/@poseidon) and [Slack](https://join.slack.com/t/poseidon-8el7276/shared_invite/zt-14q2wxxmf-pbtNtm5E9DFJbjioyfAyMg).
