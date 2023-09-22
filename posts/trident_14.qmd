@@ -7,7 +7,7 @@ description: A new update of trident, improved semantics of forge queries
 draft: true
 ---
 
-![Image by Unsplash](../jay-wennington-N_Y88TWmGwA-unsplash.jpg)
+![Image of a restaurant, by Unsplash](../jay-wennington-N_Y88TWmGwA-unsplash.jpg)
 
 Today we're releasing a new major release for trident, our command-line tool and workhorse for working with Poseidon packages.
 
