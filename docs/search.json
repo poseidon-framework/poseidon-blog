@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "posts/isba2023poster.html",
+    "href": "posts/isba2023poster.html",
+    "title": "The Poseidon poster at ISBA 2023",
+    "section": "",
+    "text": "The biennial meeting of the International Society for Biomolecular Archaeology (ISBA) is one of the key conferences for human archaeogenetic research. This years meeting, ISBA2023 was set to take place from 13th to 16th September in the city of Tartu in Estonia and entitled “New Horizons in Biomolecular Archaeology”. Naturally we decided to present Poseidon there to its core user group: practitioners in the field of archaeogenetics.\nWe applied with an ambitious abstract (the full text is available at the bottom of this post) and were awarded a poster. Below we share what we came up with. We tried to explain what motivates us to work on Poseidon and which components of the framework are already available. This includes the package format specification, the software tools, the public archives and the Minotaur workflow.\nThiseas C. Lamnidis and I finally presented the poster as the result of collaborative work with Ayshin Ghalichi, Dhananjaya B. A. Mudiyanselage, Wolfgang Haak and Stephan Schiffels in Tartu.\nYou can download the complete poster in .pdf format here."
+  },
+  {
+    "objectID": "posts/isba2023poster.html#abstract",
+    "href": "posts/isba2023poster.html#abstract",
+    "title": "The Poseidon poster at ISBA 2023",
+    "section": "Abstract",
+    "text": "Abstract\nPoseidon – Powerful and FAIR archaeogenetic genotype data management\nThe increase in ancient human DNA data requires robust yet flexible solutions to store and distribute it. While raw sequencing data is generally shared in large archives (e.g. ENA or SRA), no such standard exists for derived genotype data and contextual, spatiotemporal information. This raises concrete issues:\n\nAncient individuals only constitute meaningful observations if their spatiotemporal provenience is known. Current practice renders it difficult to maintain the connection between archaeological context and sampled genomic data.\nSpecific results can only be reproduced with genotypes. Current practice does not include their publication.\nMeta-analyses involving large amounts of data require tedious curation. Available public datasets have high key-person-risk, lag behind and are not well machine-readable.\n\nTo tackle these issues we present Poseidon, a computational framework including an open data format, software, and community-maintained archives to enable standardised and FAIR handling of archaeogenetic data. A Poseidon package bundles genotypes in industry-standard formats with human- and machine-readable context data, storing sample-wise information on spatiotemporal origin and genetic data quality. Through collective effort we already prepared 100+ packages for published studies in an open online repository.\nIn our talk we want to specifically highlight two components of the framework:\n\nA computational platform to process raw sequencing data directly from archive data (e.g. ENA), with a public interface for package curators to control processing parameters. Infrastructure will be provided by MPI-EVA, with community access and continuous integration provided via GitHub.\nCommand line software for package validation, manipulation and analysis. Validating structural integrity is a core task to honour the FAIR promise. The reliable structure then allows for advanced stream processing and co-analysis of genomic and contextual information."
+  },
+  {
     "objectID": "posts/welcome.html",
     "href": "posts/welcome.html",
     "title": "Welcome to the Poseidon-Blog",
@@ -11,7 +25,7 @@
     "href": "index.html",
     "title": "Poseidon Blog",
     "section": "",
-    "text": "If you want to get back to the Poseidon Website, click here.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nWelcome to the Poseidon-Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\nA new update of xerxes, more statistics and documentation\n\n\n\n\n\n\nSep 22, 2023\n\n\nStephan Schiffels\n\n\n\n\n\n\nNo matching items"
+    "text": "If you want to get back to the Poseidon Website, click here.\n\n\n\n\n\n\n\n\n  \n\n\n\n\nThe Poseidon poster at ISBA 2023\n\n\n\n\n\n\n\nnews\n\n\nconferences\n\n\n\n\nHere is the poster we presented at the ISBA conference in Tartu, Estonia.\n\n\n\n\n\n\nSep 24, 2023\n\n\nClemens Schmid\n\n\n\n\n\n\n  \n\n\n\n\nWelcome to the Poseidon-Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\nA new update of xerxes, more statistics and documentation\n\n\n\n\n\n\nSep 22, 2023\n\n\nStephan Schiffels\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
