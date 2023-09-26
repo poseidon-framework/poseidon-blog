@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  post-render:
+    - "cp -rnv CNAME docs/"
 
 website:
   title: "Poseidon Blog"
