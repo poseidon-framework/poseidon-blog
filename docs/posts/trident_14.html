@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Stephan Schiffels">
-<meta name="dcterms.date" content="2023-09-22">
+<meta name="dcterms.date" content="2023-10-04">
 <meta name="description" content="A new update of trident, improved semantics of forge queries">
 
 <title>Poseidon Blog - Trident’s restaurant - your order please?</title>
@@ -80,11 +80,6 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../about.html">About</a>
-  </li>  
-</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://www.poseidon-adna.org"><img width="30em" src="../Poseidon-Avatar-White-BgSml.jpg"> Poseidon-Website</a>
@@ -140,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 22, 2023</p>
+      <p class="date">October 4, 2023</p>
     </div>
   </div>
     
@@ -156,8 +151,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Today we’re releasing a new major release for trident, our command-line tool and workhorse for working with Poseidon packages.</p>
-<p>If you haven’t checked it out yet, take a look [at our documentation]. With <code>trident</code>, you can download packages from our web-server, initialise new packages, perform validations, list summaries of packages, and - most importantly - forge new packages out of existing ones.</p>
-<p>This functionality, <code>forge</code> is more than a merge, and more than a subset tool. It is both. Perhaps a working analogy for what it does is a restaurant. At a restaurant, you order a specific meal, but you don’t care how the ingredients have been packaged, and with which other ingredients they are stored. You just want the chefs to assmble the meal, no matter whether the beans are stored together with the peas or not.</p>
+<p>If you haven’t checked it out yet, take a look <a href="https://www.poseidon-adna.org/#/trident">at our documentation</a>. With <code>trident</code>, you can download packages from our web-server, initialise new packages, perform validations, list summaries of packages, and - most importantly - forge new packages out of existing ones. This functionality, <code>forge</code> is more than a merge, and more than a subset tool. It is both. Perhaps a working analogy for what it does is a restaurant. At a restaurant, you order a specific meal, but you don’t care how the ingredients have been packaged, and with which other ingredients they are stored. You just want the chefs to assmble the meal, no matter whether the beans are stored together with the peas or not.</p>
 <p>With <code>forge</code>, you just show the program where to find the storage room (that’s what we call a base-directory that contains packages), and you tell it which individuals or groups you would like to include or exclude. Forge will then automatically look through <em>all</em> packages and assemble exactly the set of samples that you need in your new package.</p>
 <p>Forge comes with a kind of mini-language to specify the ingredients that you need. This mini-language is something that we have clarified and subtly improved in this new release. There are four ways to ask forge to include entities in <code>forge</code>:</p>
 <ol type="1">

@@ -1,19 +1,16 @@
 ---
 title: "Trident's restaurant - your order please?"
 author: "Stephan Schiffels"
-date: "2023-09-22"
+date: "2023-10-04"
 categories: [news]
 description: A new update of trident, improved semantics of forge queries
-draft: true
 ---
 
 ![Image of a restaurant, by Unsplash](../jay-wennington-N_Y88TWmGwA-unsplash.jpg)
 
 Today we're releasing a new major release for trident, our command-line tool and workhorse for working with Poseidon packages.
 
-If you haven't checked it out yet, take a look [at our documentation]. With `trident`, you can download packages from our web-server, initialise new packages, perform validations, list summaries of packages, and - most importantly - forge new packages out of existing ones. 
-
-This functionality, `forge` is more than a merge, and more than a subset tool. It is both. Perhaps a working analogy for what it does is a restaurant. At a restaurant, you order a specific meal, but you don't care how the ingredients have been packaged, and with which other ingredients they are stored. You just want the chefs to assmble the meal, no matter whether the beans are stored together with the peas or not.
+If you haven't checked it out yet, take a look [at our documentation](https://www.poseidon-adna.org/#/trident). With `trident`, you can download packages from our web-server, initialise new packages, perform validations, list summaries of packages, and - most importantly - forge new packages out of existing ones. This functionality, `forge` is more than a merge, and more than a subset tool. It is both. Perhaps a working analogy for what it does is a restaurant. At a restaurant, you order a specific meal, but you don't care how the ingredients have been packaged, and with which other ingredients they are stored. You just want the chefs to assmble the meal, no matter whether the beans are stored together with the peas or not.
 
 With `forge`, you just show the program where to find the storage room (that's what we call a base-directory that contains packages), and you tell it which individuals or groups you would like to include or exclude. Forge will then automatically look through _all_ packages and assemble exactly the set of samples that you need in your new package.
 

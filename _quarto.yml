@@ -7,8 +7,6 @@ project:
 website:
   title: "Poseidon Blog"
   navbar:
-    left:
-      - about.qmd
     right:
       - href: https://www.poseidon-adna.org
         text: <img width=30em src='/Poseidon-Avatar-White-BgSml.jpg'>      Poseidon-Website
