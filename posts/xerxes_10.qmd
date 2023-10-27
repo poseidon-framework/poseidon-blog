@@ -1,10 +1,9 @@
 ---
 title: "Xerxes's cutlery - enjoying your dinner?"
 author: "Stephan Schiffels"
-date: "2023-09-22"
+date: "2023-10-27"
 categories: [news]
 description: A new update of xerxes, more statistics and documentation
-draft: true
 ---
 
 ![Image of cutlery, by Unsplash](../oliver-augustijn-4Af55Wg3vEs-unsplash.jpg)
