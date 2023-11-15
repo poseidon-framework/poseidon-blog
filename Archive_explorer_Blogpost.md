@@ -13,7 +13,7 @@ has introduced a new feature - the Poseidon Archive Explorer. This
 dynamic web application offers a comprehensive overview of current
 Ancient DNA publications, providing a valuable resource for scholars and
 enthusiasts alike.
-
+![archive explorer main UI][./Archive_explorer_mainUI.png]
 **In the Poseidon ecosystem, there are three main components:**
 
 1.  The Poseidon Package Format: This component serves as a standardized
@@ -42,7 +42,7 @@ Storage system. This hybrid approach ensures robust version control and
 data cleanliness. Researchers and enthusiasts can benefit from this
 combination, fostering a harmonious ecosystem of data accessibility and
 precision.
-
+![UI demo][./UI_demo.gif]
 **A Bridge Between Data and You**
 
 The concept behind the development of Archive Explorer is pretty
@@ -77,13 +77,13 @@ you’re after:
 3.  For those who prefer the manual approach, we’ve got a table view of
     all the publications available in each archive. You can roll up your
     sleeves and search for the info you need.
-
+![package view][./Archive_explorer_packageview.png]
+![package view][./Archive_explorer_packageView2.png]
 **Getting Up Close and Personal with the Data**
 
 Once you’ve picked a package, you can access it either through the map
 marker or by hitting that trusty magnifying glass icon on the table
-view. If you’re into details, the table view lets you view genotype data
-in GIT LFS or download it as a "zip" file.
+view. If you’re into details, the table view lets you view genotype data or download it as a "zip" file via our inhouse Poseidon server.
 
 **Exploring the Package: More Than Meets the Eye**
 
