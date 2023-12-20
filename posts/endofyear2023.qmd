@@ -1,0 +1,28 @@
+---
+title: "2023 ♥ Poseidon"
+author: "Clemens Schmid"
+date: "2023-12-20"
+categories: [reviews]
+description: An opinionated summary of the year's events in and around the Poseidon framework.
+image: "isba2023poster_media/house.png"
+---
+
+It's late December and the time of the year when work slows down around here. For many of us an opportunity to take a break and to look back, contemplating the achievements of the year. I decided to do so as well and write a bit about Poseidon. What follows is a subjective account of the events in and around the framework in 2023 - each of my colleagues in the core team would probably emphasise different developments in such a write-up. That is in itself an achievement, because it shows how much the tech-stack, features and services in our little ecosystem have grown this year: beyond the understanding of each of us individually.
+
+## The Poseidon schema
+
+Let's start simple with the two new releases of the Poseidon schema we published this year: 2.7.0 and 2.7.1. They were published in short succession in March and May, the latter only slightly improving the .ssf files added in the first. See the changelog [here](https://www.poseidon-adna.org/#/changelog) for more details, but the addition of the [.ssf file](https://www.poseidon-adna.org/#/ssf_details) is indeed their most remarkable addition to the schema. With it we addressed a major desideratum and unresolved question in previous versions of Poseidon: How should genotype data be linked to the raw sequencing data on the ENA and other databases?
+
+The .ssf file is, I would argue, a smart solution for this question. It specifies the very variables already used in the ENA database, allows for an extremely flexible, yet not arbitrary n:m connection between the entities in a Poseidon package and the raw data products and it can be generated semi-automatically for most of the data in our public archives. The .ssf file is then the very foundation on top of which the amazing Minotaur workflow is built (see below).
+
+Generally, both the fact that only two Poseidon schema releases were necessary this year and that we could treat them as non-breaking changes indicate that we reached a certain level of maturity and stability here. We certainly have ideas how to extend it further in the future, but at the moment I'm optimistic that we can maintain long-term backwards compatibility. The process in which we discussed, specified and later improved the .ssf file definition to only then build Minotaur on top of it was a very satisfying professional experience.
+
+## The Minotaur workflow
+
+## The public archives
+
+## The software tools
+
+## Outreach
+
+## Outlook
