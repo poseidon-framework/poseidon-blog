@@ -47,7 +47,7 @@ The Poseidon software tools grew significantly more powerful this year. From a u
 
 With qjanno I added an entirely new tool to the set. It is a command line tool to run SQL queries on .janno (and arbitrary .csv and .tsv) files. I created it by forking the [qsh package](https://github.com/itchyny/qhs) and then adjusting it heavily for the use on Poseidon packages. Just as trident it is written in Haskell and openly available in precompiled executables [here](https://www.poseidon-adna.org/#/qjanno).
 
-Stephan invested a good amount of effort into consolidating the data analysis features in xerxes. He wrote a [whitepaper](https://github.com/poseidon-framework/poseidon-analysis-hs/blob/main/docs/xerxes_whitepaper.pdf) to explain and justify the reasoning behind the implemented logic. Together we worked on integrating the many changes to trident and its underlying poseidon-hs Haskell library also into xerxes.
+Stephan invested a good amount of effort into consolidating the data analysis features in xerxes. He wrote a [whitepaper](https://github.com/poseidon-framework/poseidon-analysis-hs/blob/main/docs/xerxes_whitepaper.pdf) to explain and justify the reasoning behind the implemented logic, and another [blog post](https://blog.poseidon-adna.org/posts/xerxes_10.html). Together we worked and will continue to work on integrating the many changes to trident and its underlying poseidon-hs Haskell library also into xerxes.
 
 Our main workhorse, trident, saw an astonishing number of new releases: `v1.1.6.0` on January 8 to `v1.4.0.3` on October 30. I went through the [extended changelogs](https://github.com/poseidon-framework/poseidon-hs/releases) published with each release and summarized the user-facing highlights of what trident supports now:
 
@@ -57,12 +57,20 @@ Our main workhorse, trident, saw an astonishing number of new releases: `v1.1.6.
 - Poseidon schema version v2.7.1 with validation of the .ssf file (v1.1.12.0)
 - A highly improved Poseidon [Web-API](https://www.poseidon-adna.org/#/web_api) that supports requesting individual (old) package versions (v1.2.0.0)
 - Reworked versions of `trident update`, now called `trident rectify`, and `trident validate`, which now allows to validate not just entire packages, but also individual files (v1.3.0.4)
-- Selecting packages by version in the forge selection language and generally handling multiple package versions (v1.4.0.2)
+- Selecting packages by version in the forge selection language and generally handling multiple package versions (v1.4.0.2, Stephan shared a [blog post](https://blog.poseidon-adna.org/posts/trident_14.html) about this release)
 
-As always I enjoyed the work on the software tools tremendously, especially in two cases: If one of our power uses requests a change and we can address a concrete need with a release and if the Haskell programming language allows for a particularly elegant solution for a given problem. A [currently pending pull request](https://github.com/poseidon-framework/poseidon-hs/pull/283) combines both: Ayshin made me aware of some validation failure cases that require better error messages and I found a neat way to provide just that with a custom-tailored monadic stack.
+As always I enjoyed the work on the software tools tremendously, especially in two cases: If one of our users reports an issue and we can address a concrete need with a release, and if the Haskell programming language allows for a particularly elegant solution for a given problem. A [currently pending pull request](https://github.com/poseidon-framework/poseidon-hs/pull/283) combines both: Ayshin made me aware of some validation failure cases that require better error messages and I found a neat way to provide just that with a custom-tailored monadic stack.
 
 ## Outreach
 
-https://blog.poseidon-adna.org/posts/isba2023poster.html
+The last domain where we made good progress in 2023 is public outreach. Naturally we invested hours in writing and updating documentation on the website, but we also pursued a number of special projects beyond the basic, technical description of software and workflows.
 
-## Outlook
+The first one of these was possible thanks to the effort of Dhananjaya, Stephan and me: We built [a page on the website](https://www.poseidon-adna.org/#/archive_explorer) where the data in the public archives can be easily explored. It makes use of the Web-API provided by our webserver to access the data and display it with a subpage for each package. Dhananjaya wrote [a post](https://blog.poseidon-adna.org/posts/Archive_explorer_Blogpost.html) about this, recently.
+
+This blog I already mentioned multiple times above is indeed another great addition of 2023. In fact, you're reading it right now. Stephan created this separate website to share news and short tutorials more easily with the world. Our wish is to gather an active and engaged community of users around Poseidon, and we hope to establish this blog as a major medium for longer write-ups beyond the technical documentation already available on the project website https://www.poseidon-adna.org.
+
+To share our blog posts, software releases and other news we switched from twitter (now X) to the fediverse in 2023. You can follow us here: https://ecoevo.social/@poseidon. The switch came naturally, given the state of affairs at X. Submitting posts automatically is more easy with mastodon compared to twitter and I made sure that this process works reliably for our software releases on GitHub.
+
+Beyond these technical novelties and online communication we also presented Poseidon at two in-person conferences in 2023: [ISBA10 in Tartu, Estonia](https://isba10.ut.ee) and the [NFDI4Objects community meeting in Berlin, Germany](https://www.nfdi4objects.net/index.php/en/get-informed/community-meeting-and-general-assembly). The poster we presented at both of these occasions was already mentioned above and is available [here](https://blog.poseidon-adna.org/posts/isba2023poster.html).
+
+## Conclusion
