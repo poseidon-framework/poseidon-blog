@@ -4,7 +4,6 @@ author: "Clemens Schmid"
 date: "2023-12-31"
 categories: [reviews]
 description: An opinionated summary of the year's events in and around the Poseidon framework.
-image: ""
 ---
 
 ![AI-generated watercolour drawing of the god Poseidon in the midst of a roaring sea. His shoulder features the number 2023. Created with Microsoft Bing Image Creator.](endofyear2023_media/poseidon_2023_bing_AI.jpeg)
@@ -76,3 +75,5 @@ To share our blog posts, software releases and other news we switched from twitt
 Beyond these technical novelties and online communication we also presented Poseidon at two in-person conferences in 2023: [ISBA10 in Tartu, Estonia](https://isba10.ut.ee) and the [NFDI4Objects community meeting in Berlin, Germany](https://www.nfdi4objects.net/index.php/en/get-informed/community-meeting-and-general-assembly). The poster we presented at both of these occasions was already mentioned above and is available [here](https://blog.poseidon-adna.org/posts/isba2023poster.html).
 
 ## Conclusion
+
+Much has happened for Poseidon in 2023 and I'm sure I'm not doing all of it due justice in this little summary. But I consider this already an impressive list that stands witness for the effort we put into the framework this year. And it seems to pay off, although I can't quantify it: The user-base is growing continuously. This helps us in turn to find and address remaining issues and make Poseidon better for all of us. This will also be one of my main tasks in the coming 2024.
