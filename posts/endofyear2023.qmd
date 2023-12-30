@@ -21,16 +21,28 @@ Generally, both the fact that only two Poseidon schema releases were necessary t
 
 ## The Minotaur workflow
 
-The Minotaur workflow is a semi-automatic workflow to reproducibly process published sequencing data into Poseidon packages. Developing that became possible, because Thiseas joined the Poseidon core team in 2023. He came up with a sophisticated, yet open and transparent implementation of this process, where authors maintain agency over data processing parameters. A full write-up for the website is [in progress](https://github.com/poseidon-framework/poseidon-framework.github.io/pull/54), so here is the summary Thiseas prepared for our [poster at the ISBA conference](https://blog.poseidon-adna.org/posts/isba2023poster.html) (see below):
+The Minotaur workflow is a semi-automatic workflow to reproducibly process published sequencing data into Poseidon packages. Developing that became possible, because Thiseas joined the Poseidon core team in 2023. He came up with a sophisticated, yet open and transparent implementation of this process, where authors maintain agency over data and data processing parameters. A full write-up for the website is [in progress](https://github.com/poseidon-framework/poseidon-framework.github.io/pull/54), so here is the summary Thiseas prepared for our poster at the ISBA conference:
 
-Community members can request new packages by submitting a build recipe as a Pull Request against a dedicated GitHub repository. This recipe is created from a Sequencing Source File (.ssf), describing the sequencing data for the package and where it can be downloaded. Using the recipe, the sequencing data gets processed through [nf-core/eager](https://nf-co.re/eager) on computational infrastructure of MPI-EVA, using a standardised, yet flexible, set of parameters. The generated genotypes, together with descriptive statistics of the sequencing data (Endogenous, Damage, Nr_SNPs, Contamination), are compiled into a Poseidon package, and made available to users in the Minotaur Archive (see below).
+Community members can request new packages by submitting a build recipe as a Pull Request against a dedicated GitHub repository. This recipe is created from a Sequencing Source File (.ssf), describing the sequencing data for the package and where it can be downloaded. Using the recipe, the sequencing data gets processed through [nf-core/eager](https://nf-co.re/eager) on computational infrastructure of MPI-EVA, using a standardised, yet flexible, set of parameters. The generated genotypes, together with descriptive statistics of the sequencing data (Endogenous, Damage, Nr_SNPs, Contamination), are compiled into a Poseidon package, and made available to users in the minotaur-archive.
 
-The Minotaur workflow is a timely addition to the Poseidon framework, providing a flexible solution to reframe legacy data in uniformly processed packages. 
+The Minotaur workflow is a timely addition to the Poseidon framework, providing a flexible solution to wrap legacy data in uniformly processed packages. Homogeneous data processing puts us closer to our great comparadum, [the AADR dataset](https://reich.hms.harvard.edu/allen-ancient-dna-resource-aadr-downloadable-genotypes-present-day-and-ancient-dna-data). It also helped us to finalize the structure of our public archives, which emerged from long discussions about the kind of data the aDNA community probably requires for derived analyses.
+
+Right now the Minotaur workflow is still in a final development and testing phase, where we focus on the processes around it, so mainly the submission of recipes, review and the forwarding of results to the minotaur-archive. One particular tricky question is how context information in the .janno file should be forwarded from the community-archive to the packages in the minotaur-archive. The last pull request for trident in 2023 aims to introduce a reliable mechanism to merge .janno files to address this issue.
 
 ## The public archives
+
+In 2023 we finally came to a conclusion on how our public data archives should be organized. What emerged is a threefold division into what we call the community-archive, the minotaur-archive and the aadr-archive. The archives are described in more detail [here](https://www.poseidon-adna.org/#/archive_overview), but here's the gist of it:
+
+The community-archive emerged from our old public-archive. It therefore includes the legacy data we originally copied from the AADR. We now decided to use this archive for author-submitted publication-wise packages to collect the exact genotype data analysed in the paper. The idea is twofold: With the author-submitted genotype data the results in the paper can be reproduced exactly. And the publication authors are generally the most reliable authority for the context data we collect in the .janno file, e.g. the spatiotemporal origin of the samples.
+
+The minotaur-archive mirrors the community-archive in that it features publication-wise packages, sometimes even the very same as the PCA. To distinguish them clearly, package titles and sample-wise Poseidon_IDs in the PMA carry the suffix _MNT (for “MiNoTaur”). Packages in the PMA include consistently reprocessed genotype data, run through the Minotaur workflow.
+
+The Poseidon AADR Archive is the conceptionally most simple archive. It features “poseidonized” versions of releases of the AADR dataset. The code and decisions for the cleaning and packaging process are documented [here](https://github.com/poseidon-framework/aadr2poseidon). Due to file size limitations of GitHub’s LFS system each AADR dataset is split into smaller sub-packages by data type and geographic origin.
 
 ## The software tools
 
 ## Outreach
+
+https://blog.poseidon-adna.org/posts/isba2023poster.html
 
 ## Outlook
