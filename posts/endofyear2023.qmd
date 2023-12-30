@@ -35,11 +35,15 @@ In 2023 we finally came to a conclusion on how our public data archives should b
 
 The community-archive emerged from our old public-archive. It therefore includes the legacy data we originally copied from the AADR. We now decided to use this archive for author-submitted publication-wise packages to collect the exact genotype data analysed in the paper. The idea is twofold: With the author-submitted genotype data the results in the paper can be reproduced exactly. And the publication authors are generally the most reliable authority for the context data we collect in the .janno file, e.g. the spatiotemporal origin of the samples.
 
-The minotaur-archive mirrors the community-archive in that it features publication-wise packages, sometimes even the very same as the PCA. To distinguish them clearly, package titles and sample-wise Poseidon_IDs in the PMA carry the suffix _MNT (for “MiNoTaur”). Packages in the PMA include consistently reprocessed genotype data, run through the Minotaur workflow.
+The minotaur-archive mirrors the community-archive in that it features publication-wise packages, sometimes even the very same as the PCA. To distinguish them clearly, package titles and sample-wise Poseidon_IDs in it carry the suffix _MNT. As explained above the packages in this archive include consistently reprocessed genotype data, run through the Minotaur workflow.
 
-The Poseidon AADR Archive is the conceptionally most simple archive. It features “poseidonized” versions of releases of the AADR dataset. The code and decisions for the cleaning and packaging process are documented [here](https://github.com/poseidon-framework/aadr2poseidon). Due to file size limitations of GitHub’s LFS system each AADR dataset is split into smaller sub-packages by data type and geographic origin.
+The aadr-archive is the conceptionally most simple archive. It features “poseidonized” versions of releases of the AADR dataset. The code and decisions for the cleaning and packaging process are documented [here](https://github.com/poseidon-framework/aadr2poseidon).
+
+2023 not only saw the planning of these archives, but also a lot of work to fill them with life. For the community archive that meant plenty of data cleaning and providing guidance for authors to submit their data. Thanks to the work of Ayshin and Dhananjaya we saw a lot of progress here with a total of eleven author-submitted packages in the archive now. Number twelve was [submitted shortly before christmas](https://github.com/poseidon-framework/community-archive/pull/151) and is awaiting review now. For the minotaur-archive I already pointed out above what was necessary. It is still functionally empty, but three packages [are pending](https://github.com/poseidon-framework/minotaur-archive/pulls) and will hopefully soon be merged. Preparing the latest version of the AADR dataset for the aadr-archive was one of the projects I tackled this year.
 
 ## The software tools
+
+
 
 ## Outreach
 
