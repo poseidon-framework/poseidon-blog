@@ -1,11 +1,13 @@
 ---
 title: "2023 ♥ Poseidon"
 author: "Clemens Schmid"
-date: "2023-12-20"
+date: "2023-12-31"
 categories: [reviews]
 description: An opinionated summary of the year's events in and around the Poseidon framework.
-image: "isba2023poster_media/house.png"
+image: ""
 ---
+
+![AI-generated watercolour drawing of the god Poseidon in the midst of a roaring sea. His shoulder features the number 2023. Created with Microsoft Bing Image Creator.](endofyear2023_media/poseidon_2023_bing_AI.jpeg)
 
 It's late December and the time of the year when work slows down around here. For many of us an opportunity to take a break and to look back, contemplating the achievements of the year. I decided to do so as well and write a bit about Poseidon.
 
