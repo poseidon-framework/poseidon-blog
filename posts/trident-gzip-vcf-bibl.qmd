@@ -54,10 +54,3 @@ So with `--ordered` the output of the above toy example which asked for `French`
 ```
 
 So I think this will be a very useful feature for creating custom collections.
-
-## Variant Call Format and gzipped genotype files
-
-
-
-## Bibliographies
-
