@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Clemens Schmid">
-<meta name="dcterms.date" content="2023-09-24">
-<meta name="description" content="Here is the poster we presented at the ISBA conference in Tartu, Estonia.">
+<meta name="author" content="Stephan Schiffels">
+<meta name="dcterms.date" content="2025-02-11">
+<meta name="description" content="More control – Ordered forges">
 
-<title>Poseidon Blog - The Poseidon poster at ISBA 2023</title>
+<title>Poseidon Blog - Trident update: Ordered forge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,16 +110,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Poseidon poster at ISBA 2023</h1>
+<h1 class="title">Trident update: Ordered forge</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">news</div>
-    <div class="quarto-category">conferences</div>
+    <div class="quarto-category">features</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Here is the poster we presented at the ISBA conference in Tartu, Estonia.
+    More control – Ordered forges
   </div>
 </div>
 
@@ -129,14 +128,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Clemens Schmid </p>
+             <p>Stephan Schiffels </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 24, 2023</p>
+      <p class="date">February 11, 2025</p>
     </div>
   </div>
     
@@ -145,47 +144,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The biennial meeting of the <a href="https://www.isbarch.org">International Society for Biomolecular Archaeology (ISBA)</a> is one of the key conferences for human archaeogenetic research. This years meeting, <a href="https://isba10.ut.ee">ISBA2023</a> was set to take place from 13th to 16th September in the city of Tartu in Estonia and entitled “New Horizons in Biomolecular Archaeology”. Naturally we decided to present Poseidon there to its core user group: practitioners in the field of archaeogenetics.</p>
-<p>We applied with an ambitious abstract (the full text is available at the bottom of this post) and were awarded a poster. Below we share what we came up with. We tried to explain what motivates us to work on Poseidon and which components of the framework are already available. This includes the package format specification, the software tools, the public archives and the Minotaur workflow.</p>
-<p>Thiseas C. Lamnidis and I finally presented the poster as the result of collaborative work with Ayshin Ghalichi, Dhananjaya B. A. Mudiyanselage, Wolfgang Haak and Stephan Schiffels in Tartu.</p>
-<p>You can download the complete poster in .pdf format <a href="isba2023poster_media/Poseidon_Poster_ISBA2023.pdf">here</a>.</p>
-<p><img src="isba2023poster_media/overview.png" class="img-fluid"></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/thePoseidonPackage.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images_misc/pexels-cottonbro-4057737.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Image of a shopping list</figcaption><p></p>
+</figure>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/thePublicArchives.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/theSoftwareTools.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/theMinotaurWorkflow.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p><strong>Poseidon – Powerful and FAIR archaeogenetic genotype data management</strong></p>
-<p>The increase in ancient human DNA data requires robust yet flexible solutions to store and distribute it. While raw sequencing data is generally shared in large archives (e.g.&nbsp;ENA or SRA), no such standard exists for derived genotype data and contextual, spatiotemporal information. This raises concrete issues:</p>
-<ul>
-<li>Ancient individuals only constitute meaningful observations if their spatiotemporal provenience is known. Current practice renders it difficult to maintain the connection between archaeological context and sampled genomic data.</li>
-<li>Specific results can only be reproduced with genotypes. Current practice does not include their publication.</li>
-<li>Meta-analyses involving large amounts of data require tedious curation. Available public datasets have high key-person-risk, lag behind and are not well machine-readable.</li>
-</ul>
-<p>To tackle these issues we present <strong>Poseidon</strong>, a computational framework including an open data format, software, and community-maintained archives to enable standardised and FAIR handling of archaeogenetic data. A Poseidon <em>package</em> bundles genotypes in industry-standard formats with human- and machine-readable context data, storing sample-wise information on spatiotemporal origin and genetic data quality. Through collective effort we already prepared 100+ packages for published studies in an open online repository.</p>
-<p>In our talk we want to specifically highlight two components of the framework:</p>
-<ol type="1">
-<li>A computational platform to process raw sequencing data directly from archive data (e.g.&nbsp;ENA), with a public interface for package curators to control processing parameters. Infrastructure will be provided by MPI-EVA, with community access and continuous integration provided via GitHub.</li>
-<li>Command line software for package validation, manipulation and analysis. Validating structural integrity is a core task to honour the FAIR promise. The reliable structure then allows for advanced stream processing and co-analysis of genomic and contextual information.</li>
-</ol>
+<p>During 2024, a lot of features were added to our flagship software <a href="https://www.poseidon-adna.org/#/trident">trident</a>. One of them was the <code>--ordered</code> flag to <code>trident forge</code>.</p>
+<p>As you may know, <code>trident forge</code> is one of our most advanced and powerful subcommands. A <code>forge</code> merges packages and subselects from them at the same time, forming a custom-collection of genomes (ancient or modern) pulled and merged from a large selection of packages. As I’ve introduced in a lot more detail <a href="../posts/trident_14.html">here</a>, you can easily select a number of groups or individuals, for example via</p>
+<pre><code>trident forge -d /path/to/poseidon_packages -f "French, Finnish, Spanish"</code></pre>
+<p>which will then go and select from the dozens or hundreds of packages those that contain these groups and output only those individuals from these three groups into a new custom-built Poseidon package. Now, in our original implementation, the order of samples would simply follow the order that the samples <em>originally</em> appeared in their respective packages. So if you have a setup like this:</p>
+<pre><code>- Package1:
+  - Francois (French)
+  - Pedro (Spanish)
+  - Vladimir (Russian)
+  - Mika (Finnish)
+- Package2:
+  - Michele (French)
+  - Sanni (Finnish)</code></pre>
+<p>the output will conist of</p>
+<pre><code>- Francois (French)
+- Pedro (Spanish)
+- Mika (Finnish)
+- Michele (French)
+- Sanni (Finnish)</code></pre>
+<p>which means that your groups are mixed and not ordered. Often you don’t care about the order, but sometimes you do. In particular, since <code>trident forge</code> not just outputs genotype data, but also gives you a custom new <a href="https://www.poseidon-adna.org/#/janno_details">Janno annotation file</a>, which is a table of all meta-information for your samples. Having this ordered can be helpful.</p>
+<p>So now we introduce a new flag <code>--ordered</code> to <code>trident forge</code>, which outputs samples not in the order of their original packages, but in the order that you, well, ordered them, if I may go back to my <a href="../posts/trident_14.html">restaurant analogy from an earlier blog post</a>.</p>
+<p>So with <code>--ordered</code> the output of the above toy example which asked for <code>French</code>, <code>Finnish</code> and <code>Spanish</code> (in that order) will be:</p>
+<pre><code>- Francois (French)
+- Michele (French)
+- Mika (Finnish)
+- Sanni (Finnish)
+- Pedro (Spanish)</code></pre>
+<p>So I think this will be a very useful feature for creating custom collections.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
