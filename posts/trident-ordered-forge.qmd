@@ -41,7 +41,7 @@ the output will conist of
 
 which means that your groups are mixed and not ordered. Often you don't care about the order, but sometimes you do. In particular, since `trident forge` not just outputs genotype data, but also gives you a custom new [Janno annotation file](https://www.poseidon-adna.org/#/janno_details), which is a table of all meta-information for your samples. Having this ordered can be helpful.
 
-So now we introduce a new flag `--ordered` to `trident forge`, which outputs samples not in the order of their original packages, but in the order that you, well, ordered them, if I may go back to my [restaurant analogy from an earlier blog post](trident_14.qmd).
+So in [Release 1.5.4.0](https://github.com/poseidon-framework/poseidon-hs/releases/tag/v1.5.4.0), we introduced a new flag `--ordered` to `trident forge`, which outputs samples not in the order of their original packages, but in the order that you, well, ordered them, if I may go back to my [restaurant analogy from an earlier blog post](trident_14.qmd).
 
 So with `--ordered` the output of the above toy example which asked for `French`, `Finnish` and `Spanish` (in that order) will be:
 
