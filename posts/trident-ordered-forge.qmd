@@ -1,0 +1,56 @@
+---
+title: "Trident update: Ordered forge"
+author: "Stephan Schiffels"
+date: "2025-02-11"
+categories: [features]
+description: More control -- Ordered forges
+---
+
+![Image of a shopping list](images_misc/pexels-cottonbro-4057737.jpg){width=50%}
+
+During 2024, a lot of features were added to our flagship software [trident](https://www.poseidon-adna.org/#/trident). One of them was the `--ordered` flag to `trident forge`.
+
+As you may know, `trident forge` is one of our most advanced and powerful subcommands. A `forge` merges packages and subselects from them at the same time, forming a custom-collection of genomes (ancient or modern) pulled and merged from a large selection of packages. As I've introduced in a lot more detail [here](trident_14.qmd), you can easily select a number of groups or individuals, for example via
+
+```
+trident forge -d /path/to/poseidon_packages -f "French, Finnish, Spanish"
+```
+
+which will then go and select from the dozens or hundreds of packages those that contain these groups and output only those individuals from these three groups into a new custom-built Poseidon package. Now, in our original implementation, the order of samples would simply follow the order that the samples _originally_ appeared in their respective packages. So if you have a setup like this:
+
+```
+- Package1:
+  - Francois (French)
+  - Pedro (Spanish)
+  - Vladimir (Russian)
+  - Mika (Finnish)
+- Package2:
+  - Michele (French)
+  - Sanni (Finnish)
+```
+
+the output will conist of 
+
+```
+- Francois (French)
+- Pedro (Spanish)
+- Mika (Finnish)
+- Michele (French)
+- Sanni (Finnish)
+```
+
+which means that your groups are mixed and not ordered. Often you don't care about the order, but sometimes you do. In particular, since `trident forge` not just outputs genotype data, but also gives you a custom new [Janno annotation file](https://www.poseidon-adna.org/#/janno_details), which is a table of all meta-information for your samples. Having this ordered can be helpful.
+
+So now we introduce a new flag `--ordered` to `trident forge`, which outputs samples not in the order of their original packages, but in the order that you, well, ordered them, if I may go back to my [restaurant analogy from an earlier blog post](trident_14.qmd).
+
+So with `--ordered` the output of the above toy example which asked for `French`, `Finnish` and `Spanish` (in that order) will be:
+
+```
+- Francois (French)
+- Michele (French)
+- Mika (Finnish)
+- Sanni (Finnish)
+- Pedro (Spanish)
+```
+
+So I think this will be a very useful feature for creating custom collections.
