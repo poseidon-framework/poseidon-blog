@@ -2,6 +2,7 @@
 author: Dhananjaya Aththanayaka
 date: November 29,2023
 title: "Navigating the Ancient DNA Landscape: Introducing the Poseidon Archive Explorer"
+categories: [news]
 ---
 
 In the ever-evolving world of ancient DNA research, staying up-to-date

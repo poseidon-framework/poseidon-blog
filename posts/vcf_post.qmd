@@ -1,4 +1,12 @@
-## Variant Call Format and gzipped genotype files
+---
+title: "Embracing the Variant Call Format in Ancient Genomics"
+author: "Stephan Schiffels"
+date: "2025-02-11"
+categories: [news,features,community]
+description: More control -- Ordered forges
+---
+
+![Image of a sample of a VCF file, colored to highlight different columns in VSCode dark mode](images_misc/vcf_sample.jpg)
 
 A major request that emerged from the Peer Review process of our [paper on Poseidon]() was the support for the [Variant Call Format](). This is the de-facto standard for how to store genetic variation data in the field of human genetics and more broadly in Genetics. The Ancient DNA community has largely settled on simpler formats, perhaps most prominently due to support for [EIGENSTRAT]() or [PLINK]() formats of the popular software packages [Eigensoft]() and [Admixtools]().
 
