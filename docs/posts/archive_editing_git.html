@@ -246,12 +246,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="optional-moving-to-another-fork-in-the-same-clone" class="level3">
 <h3 class="anchored" data-anchor-id="optional-moving-to-another-fork-in-the-same-clone">6. (optional) Moving to another fork in the same clone</h3>
 <p>If the changes in a fork A are already merged into the master branch of the main archive repository, then a little trick allows to switch to another fork B in the same clone.</p>
-<pre><code>git remote -v
-git remote set-url origin git@github.com:poseidon-framework/community-archive.git
-git switch master
-git pull
-git remote set-url origin git@github.com:USERNAME/FORK-OF-THE-NEXT-REPOSITORY.git
-git pull</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin git@github.com:poseidon-framework/community-archive.git</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch master</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin git@github.com:USERNAME/FORK-OF-THE-NEXT-REPOSITORY.git</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We set the remote URL to the main repository, switch to the master branch, and pull. The commits from A are already there, so we have a clean state again. From here we can set a new remote URL for a fork B and pull. This effectively saves us from creating a fresh clone (as described in <a href="#sec-clone" class="quarto-xref">Section&nbsp;1.1</a>).</p>
 
 
