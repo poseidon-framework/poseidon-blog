@@ -23,7 +23,7 @@ GitHub's documentation includes a helpful tutorial how to [commit changes to a p
 > - Have permission granted from the pull request creator
 > - Don't have branch restrictions that will prevent you from committing
 
-All of these are met in my case. But two additional challenges complicate the matter: i. the community-archive uses Git LFS for the large data files, and ii. I need to do this so frequently, that cloning every fork feels unnecessarily cumbersome. The following workflow considers this special situation.
+All of these are met in my case. But two additional challenges complicate the matter: i) the community-archive uses Git LFS for the large data files, and ii) I need to do this so frequently, that cloning every fork feels unnecessarily cumbersome. The following workflow considers this special situation.
 
 ### 1. Clone the fork repository {#sec-clone}
 
@@ -33,7 +33,7 @@ GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/USERNAME/FORK-OF-THE-REPOSITO
 
 Note that this workflow assumes that you have installed and configured Git LFS on your system. Cloning the repo with the `GIT_LFS_SKIP_SMUDGE` environment variable prevents downloading the LFS-tracked files despite Git LFS being enabled. This saves bandwidth and costs for us on GitHub.
 
-### 2. (optional) Switch to the pull request branch
+### 2. (if necessary) Switch to the pull request branch
 
 ```bash
 git switch PR-BRANCH
@@ -41,7 +41,7 @@ git switch PR-BRANCH
 
 This is only necessary, if the PR branch is not the main/master branch.
 
-### 3. (optional) Download individual LFS-tracked files
+### 3. (if necessary) Download individual LFS-tracked files
 
 ```bash
 git lfs pull --include "PATH-TO-FILE"
