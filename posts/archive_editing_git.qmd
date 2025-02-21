@@ -71,7 +71,7 @@ git push
 
 This resolved the issue for me -- specifically because I never had to edit any of the genotype data files when working on a PR fork. I don't know how this hack affects the handling of LFS-tracked files.
 
-### (optional) 6. Moving to another fork in the same clone
+### 6. (optional) Moving to another fork in the same clone
 
 If the changes in a fork A are already merged into the master branch of the main archive repository, then a little trick allows to switch to another fork B in the same clone.
 

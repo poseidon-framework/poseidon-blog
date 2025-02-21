@@ -243,8 +243,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This resolved the issue for me – specifically because I never had to edit any of the genotype data files when working on a PR fork. I don’t know how this hack affects the handling of LFS-tracked files.</p>
 </section>
-<section id="optional-6.-moving-to-another-fork-in-the-same-clone" class="level3">
-<h3 class="anchored" data-anchor-id="optional-6.-moving-to-another-fork-in-the-same-clone">(optional) 6. Moving to another fork in the same clone</h3>
+<section id="optional-moving-to-another-fork-in-the-same-clone" class="level3">
+<h3 class="anchored" data-anchor-id="optional-moving-to-another-fork-in-the-same-clone">6. (optional) Moving to another fork in the same clone</h3>
 <p>If the changes in a fork A are already merged into the master branch of the main archive repository, then a little trick allows to switch to another fork B in the same clone.</p>
 <pre><code>git remote -v
 git remote set-url origin git@github.com:poseidon-framework/community-archive.git
