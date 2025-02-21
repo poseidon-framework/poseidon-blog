@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Stephan Schiffels">
-<meta name="dcterms.date" content="2023-10-04">
-<meta name="description" content="A new update of trident, improved semantics of forge queries">
+<meta name="author" content="Clemens Schmid">
+<meta name="dcterms.date" content="2025-02-21">
+<meta name="description" content="A quick, technical write-up of a Git editing workflow particularly useful for the Poseidon community archive.">
 
-<title>Trident’s restaurant - your order please? – Poseidon Blog</title>
+<title>Poseidon archive management: editing a pull request branch created from a fork – Poseidon Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -121,15 +155,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Trident’s restaurant - your order please?</h1>
+<h1 class="title">Poseidon archive management: editing a pull request branch created from a fork</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">news</div>
+    <div class="quarto-category">technotes</div>
+    <div class="quarto-category">workflows</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A new update of trident, improved semantics of forge queries
+    A quick, technical write-up of a Git editing workflow particularly useful for the Poseidon community archive.
   </div>
 </div>
 
@@ -139,14 +174,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Stephan Schiffels </p>
+             <p>Clemens Schmid </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 4, 2023</p>
+      <p class="date">February 21, 2025</p>
     </div>
   </div>
   
@@ -158,36 +193,70 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>At the time of writing, the <a href="https://github.com/poseidon-framework/community-archive">Poseidon community archive</a> has 14 open pull requests – most of which were opened by various community members to add new packages to the archive. What certainly is a pleasant development, because it indicates that the archive gets adopted, also comes with technical and administrative challenges. As an editor for the archive I recently had to step up my Git skills to address a particular issue I was facing.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../jay-wennington-N_Y88TWmGwA-unsplash.jpg" class="img-fluid figure-img"></p>
-<figcaption>Image of a restaurant, by Unsplash</figcaption>
+<p><img src="archive_editing_git_media/man_in_labyrinth_bing_AI.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>AI-generated picture of a man in a labyrinth with a statue of Poseidon. Made with Microsoft Bing Image Creator.</figcaption>
 </figure>
 </div>
-<p>Today we’re releasing a new major release for trident, our command-line tool and workhorse for working with Poseidon packages.</p>
-<p>If you haven’t checked it out yet, take a look <a href="https://www.poseidon-adna.org/#/trident">at our documentation</a>. With <code>trident</code>, you can download packages from our web-server, initialise new packages, perform validations, list summaries of packages, and - most importantly - forge new packages out of existing ones. This functionality, <code>forge</code> is more than a merge, and more than a subset tool. It is both. Perhaps a working analogy for what it does is a restaurant. At a restaurant, you order a specific meal, but you don’t care how the ingredients have been packaged, and with which other ingredients they are stored. You just want the chefs to assmble the meal, no matter whether the beans are stored together with the peas or not.</p>
-<p>With <code>forge</code>, you just show the program where to find the storage room (that’s what we call a base-directory that contains packages), and you tell it which individuals or groups you would like to include or exclude. Forge will then automatically look through <em>all</em> packages and assemble exactly the set of samples that you need in your new package.</p>
-<p>Forge comes with a kind of mini-language to specify the ingredients that you need. This mini-language is something that we have clarified and subtly improved in this new release. There are four ways to ask forge to include entities in <code>forge</code>:</p>
-<ol type="1">
-<li>Include an individual by name: You can write <code>&lt;EAS006&gt;</code> (in angular brackets) to ask forge to look for the individual named “EAS006” (I’m glad you ask, it’s a male individual from Southern England who did 1500 years ago and was buried near a town called Eastry today.). If there are multiple versions of this individual, because there are multiple versions of packages, forge looks for this individual only on the latest version.</li>
-<li>Include an individual by name, group and package: Sometimes, there are several individuals with that same name in your package collection, perhaps because you have multiple versions of the same package, or because for some reason you have already previously forged packages all in the same collection. In such a case, there is a more specific way to define an individual, via the syntax <code>&lt;2022_Gretzinger_AngloSaxons-1.0.0:England_EMA:EAS006&gt;</code>, which now specifies a very specific individual that is found in the given package and in the given group.</li>
-<li>Include entire groups: You can write <code>England_EMA</code> to ask forge to look for <em>all</em> individuals that are associated with the group named “England_EMA” (I’m again glad you ask: EMA stands for “Early Middle Ages”). This again implicitly looks for the group only in the latest versions of packages.</li>
-<li>Include entire packages: You can write <code>*2022_Gretzinger_AngloSaxons*</code> to ask forge to select for <em>all</em> individuals in the entire package.</li>
-</ol>
-<p>Note that you can combine these requests to merge them into the final forge. So for example you could say <code>&lt;EAS006&gt;,&lt;EAS001&gt;,England_IronAge</code> or so, which would then result in a package consisting of the two specified individuls plus <em>all</em> individuals from group “England_IronAge”. So this provides you with a lot of power already to select large numbers of samples in a succinct way. But sometimes you need even more power, because you want to also specifically <em>exclude</em> some samples. In <code>forge</code>, you can do that by prepending a minus-sign to any entity:</p>
-<ol start="5" type="1">
-<li>Exclude an individual by name: Write <code>-&lt;EAS006&gt;</code> to ask forge to remove any sample with that name from the final selection, in case it has been selected before.</li>
-<li>Exclude an individual by name, group and package: Write <code>-&lt;2022_Gretzinger_AngloSaxons-0.1.0:England_EMA:EAS006&gt;</code> to not remove <em>all</em> individual with the name “EAS006”, but only the one in the specified package.</li>
-<li>Exclude an entire group: Write <code>-England_EMA</code> to remove all individuals that belong to that group.</li>
-<li>Exclude an entire package: Write <code>-*2022_Gretzinger_AngloSaxons*</code> to remove this package.</li>
-</ol>
-<p>So now you can accurately describe what you want to include and exclude. Note that the order matters, as you would expect: <code>*2022_Gretzinger_AngloSaxons*,-England_EMA,&lt;EAS006&gt;</code> will contain a selection that includes <code>&lt;EAS006&gt;</code>, since it was added back at the end. In contrast, <code>*2022_Gretzinger_AngloSaxons*,&lt;EAS006&gt;,-England_EMA</code> will <em>not</em> include the sample, as the entire group was removed after it was added, so it got removed again.</p>
-<p>There is one more gist: If your forge-list starts with an exclusion statement, so if you just write <code>-*2022_Gretzinger_AngloSaxons*</code>, then this implicitly means that you include <em>all</em> latest versions of packages in the base directory. So this is a way to forge everything <em>except</em> a given package or group or individual.</p>
-<p>The exact semantics of this forge-machinery are quite complex and powerful, and we have clarified how this works in the latest version, and made it specifically more consistent and intuitive. This in particular concerns a feature that we now built in for the first time: You can now append versions of packages explicitly to a package-name, to select a specific version of a package. This works both in package requests, and in individuals by name, group and package.</p>
-<p>So <code>*2022_Gretzinger_AngloSaxons-1.2.1*</code> works, and <code>&lt;2022_Gretzinger_AngloSaxons-1.2.1:England_EMA:EAS006&gt;</code> works as well.</p>
-<p>There was quite a bunch of refactoring of code that needed to happen under the hood to make this update possible, in particular in relation to supporting multiple versions of packages. This update will bring us a good step closer to making archaeoenetics analyses truly reproducible, as older versions of packages will continue to be served on our servers (which we will post about separately).</p>
+<p>Already multiple times I found myself in the situation that I needed to edit a submission pull request before merging. This arose for example, when a package author prepared a package almost perfectly, but I still wanted to apply some additional minor changes before merging. Or an author or reviewer had struggled with Git, manoeuvred themselves into a predicament, and needed my help to untangle the knot without <a href="https://xkcd.com/1597">starting from scratch</a>. So here is what I came up with to allow me to do that efficiently.</p>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<p>GitHub’s documentation includes a helpful tutorial how to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork">commit changes to a pull request branch created from a fork</a>. It already covers the basic workflow how to edit a fork. The article highlights a number of conditions for this to be possible:</p>
+<blockquote class="blockquote">
+<p>You can only make commits on pull request branches that:</p>
+<ul>
+<li>Are opened in a repository that you have push access to and that were created from a fork of that repository</li>
+<li>Are on a user-owned fork</li>
+<li>Have permission granted from the pull request creator</li>
+<li>Don’t have branch restrictions that will prevent you from committing</li>
+</ul>
+</blockquote>
+<p>All of these are met in my case. But two additional challenges complicate the matter: i) the community-archive uses Git LFS for the large data files, and ii) I need to do this so frequently, that cloning every fork feels unnecessarily cumbersome. The following workflow considers this special situation.</p>
+<section id="sec-clone" class="level3">
+<h3 class="anchored" data-anchor-id="sec-clone">1. Clone the fork repository</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">GIT_LFS_SKIP_SMUDGE</span><span class="op">=</span>1 <span class="fu">git</span> clone https://github.com/USERNAME/FORK-OF-THE-REPOSITORY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that this workflow assumes that you have installed and configured Git LFS on your system. Cloning the repo with the <code>GIT_LFS_SKIP_SMUDGE</code> environment variable prevents downloading the LFS-tracked files despite Git LFS being enabled. This saves bandwidth and costs for us on GitHub.</p>
+</section>
+<section id="if-necessary-switch-to-the-pull-request-branch" class="level3">
+<h3 class="anchored" data-anchor-id="if-necessary-switch-to-the-pull-request-branch">2. (if necessary) Switch to the pull request branch</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch PR-BRANCH</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is only necessary, if the PR branch is not the main/master branch.</p>
+</section>
+<section id="if-necessary-download-individual-lfs-tracked-files" class="level3">
+<h3 class="anchored" data-anchor-id="if-necessary-download-individual-lfs-tracked-files">3. (if necessary) Download individual LFS-tracked files</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> lfs pull <span class="at">--include</span> <span class="st">"PATH-TO-FILE"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To validate a package completely it can be necessary to also access the genotype data. But because we cloned above with <code>GIT_LFS_SKIP_SMUDGE=1</code>, this data is not in our clone now. Fortunately we can selectively download it. <code>PATH-TO-FILE</code> can also include wildcards.</p>
+</section>
+<section id="edit-the-files-as-desired" class="level3">
+<h3 class="anchored" data-anchor-id="edit-the-files-as-desired">4. Edit the files as desired</h3>
+<p>Remember to commit the changes.</p>
+</section>
+<section id="push-the-changes" class="level3">
+<h3 class="anchored" data-anchor-id="push-the-changes">5. Push the changes</h3>
+<p>This should work with <code>git push</code>. But yet again, Git LFS complicates things, raising the following error message:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>error: Authentication error: Authentication required: You must have push access to verify locks</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>error: failed to push some refs to 'github.com:USERNAME/FORK-OF-THE-REPOSITORY.git'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is caused by a limitation of GitHub’s Git LFS implementation. A long thread here discusses the issue: <a href="https://github.com/git-lfs/git-lfs/issues/2291#issuecomment-305887405">Authentication required : You must have push access to verify locks error.</a> Multiple solutions are suggested there. One reliable workaround is to <a href="https://github.com/git-lfs/git-lfs/issues/2291#issuecomment-305887405">delete the git hook <code>.git/hooks/pre-push</code></a>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> .git/hooks/pre-push</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This resolved the issue for me – specifically because I never had to edit any of the genotype data files when working on a PR fork. I don’t know how this hack affects the handling of LFS-tracked files.</p>
+</section>
+<section id="optional-6.-moving-to-another-fork-in-the-same-clone" class="level3">
+<h3 class="anchored" data-anchor-id="optional-6.-moving-to-another-fork-in-the-same-clone">(optional) 6. Moving to another fork in the same clone</h3>
+<p>If the changes in a fork A are already merged into the master branch of the main archive repository, then a little trick allows to switch to another fork B in the same clone.</p>
+<pre><code>git remote -v
+git remote set-url origin git@github.com:poseidon-framework/community-archive.git
+git switch master
+git pull
+git remote set-url origin git@github.com:USERNAME/FORK-OF-THE-NEXT-REPOSITORY.git
+git pull</code></pre>
+<p>We set the remote URL to the main repository, switch to the master branch, and pull. The commits from A are already there, so we have a clean state again. From here we can set a new remote URL for a fork B and pull. This effectively saves us from creating a fresh clone (as described in <a href="#sec-clone" class="quarto-xref">Section&nbsp;1.1</a>).</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
