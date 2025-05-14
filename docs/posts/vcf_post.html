@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Clemens Schmid">
-<meta name="dcterms.date" content="2023-09-24">
-<meta name="description" content="Here is the poster we presented at the ISBA conference in Tartu, Estonia.">
+<meta name="author" content="Stephan Schiffels">
+<meta name="dcterms.date" content="2025-05-14">
+<meta name="description" content="VCF files supported by Poseidon">
 
-<title>Poseidon Blog - The Poseidon poster at ISBA 2023</title>
+<title>Poseidon Blog - Embracing the Variant Call Format in Ancient Genomics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,16 +110,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Poseidon poster at ISBA 2023</h1>
+<h1 class="title">Embracing the Variant Call Format in Ancient Genomics</h1>
   <div class="quarto-categories">
     <div class="quarto-category">news</div>
-    <div class="quarto-category">conferences</div>
+    <div class="quarto-category">features</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Here is the poster we presented at the ISBA conference in Tartu, Estonia.
+    VCF files supported by Poseidon
   </div>
 </div>
 
@@ -129,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Clemens Schmid </p>
+             <p>Stephan Schiffels </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 24, 2023</p>
+      <p class="date">May 14, 2025</p>
     </div>
   </div>
     
@@ -145,47 +145,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The biennial meeting of the <a href="https://www.isbarch.org">International Society for Biomolecular Archaeology (ISBA)</a> is one of the key conferences for human archaeogenetic research. This years meeting, <a href="https://isba10.ut.ee">ISBA2023</a> was set to take place from 13th to 16th September in the city of Tartu in Estonia and entitled “New Horizons in Biomolecular Archaeology”. Naturally we decided to present Poseidon there to its core user group: practitioners in the field of archaeogenetics.</p>
-<p>We applied with an ambitious abstract (the full text is available at the bottom of this post) and were awarded a poster. Below we share what we came up with. We tried to explain what motivates us to work on Poseidon and which components of the framework are already available. This includes the package format specification, the software tools, the public archives and the Minotaur workflow.</p>
-<p>Thiseas C. Lamnidis and I finally presented the poster as the result of collaborative work with Ayshin Ghalichi, Dhananjaya B. A. Mudiyanselage, Wolfgang Haak and Stephan Schiffels in Tartu.</p>
-<p>You can download the complete poster in .pdf format <a href="isba2023poster_media/Poseidon_Poster_ISBA2023.pdf">here</a>.</p>
-<p><img src="isba2023poster_media/overview.png" class="img-fluid"></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/thePoseidonPackage.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images_misc/vcf_sample.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Image of a sample of a VCF file, colored to highlight different columns in VSCode dark mode</figcaption><p></p>
+</figure>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/thePublicArchives.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/theSoftwareTools.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/theMinotaurWorkflow.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p><strong>Poseidon – Powerful and FAIR archaeogenetic genotype data management</strong></p>
-<p>The increase in ancient human DNA data requires robust yet flexible solutions to store and distribute it. While raw sequencing data is generally shared in large archives (e.g.&nbsp;ENA or SRA), no such standard exists for derived genotype data and contextual, spatiotemporal information. This raises concrete issues:</p>
-<ul>
-<li>Ancient individuals only constitute meaningful observations if their spatiotemporal provenience is known. Current practice renders it difficult to maintain the connection between archaeological context and sampled genomic data.</li>
-<li>Specific results can only be reproduced with genotypes. Current practice does not include their publication.</li>
-<li>Meta-analyses involving large amounts of data require tedious curation. Available public datasets have high key-person-risk, lag behind and are not well machine-readable.</li>
-</ul>
-<p>To tackle these issues we present <strong>Poseidon</strong>, a computational framework including an open data format, software, and community-maintained archives to enable standardised and FAIR handling of archaeogenetic data. A Poseidon <em>package</em> bundles genotypes in industry-standard formats with human- and machine-readable context data, storing sample-wise information on spatiotemporal origin and genetic data quality. Through collective effort we already prepared 100+ packages for published studies in an open online repository.</p>
-<p>In our talk we want to specifically highlight two components of the framework:</p>
-<ol type="1">
-<li>A computational platform to process raw sequencing data directly from archive data (e.g.&nbsp;ENA), with a public interface for package curators to control processing parameters. Infrastructure will be provided by MPI-EVA, with community access and continuous integration provided via GitHub.</li>
-<li>Command line software for package validation, manipulation and analysis. Validating structural integrity is a core task to honour the FAIR promise. The reliable structure then allows for advanced stream processing and co-analysis of genomic and contextual information.</li>
-</ol>
+<p>A major request that emerged from the Peer Review process of our <a href="https://elifesciences.org/reviewed-preprints/98317">reviewed preprint</a> was the support for the <a href="https://samtools.github.io/hts-specs/VCFv4.1.pdf">Variant Call Format</a>. This is the de-facto standard for how to store genetic variation data in the field of human and medical genetics. The Ancient DNA community has largely settled on simpler formats, perhaps most prominently due to support for EIGENSTRAT or PLINK formats of the popular software packages <a href="https://github.com/DReichLab/EIG">Eigensoft</a> and <a href="https://github.com/DReichLab/AdmixTools">Admixtools</a>.</p>
+<p>Nevertheless, in contrast to the above two formats, the VCF format is extremely well specified and allows to store some critical features of the data that Eigenstrat and Plink just cannot. One, in my view critical point, is the ability to distinguish between haploid and diploid genotype calls. For example, in the vast majority of cases in the field of ancient genomics, we typically don’t analyse diploid calls, but represent an individual’s genotype by single-reads mapping to a variant. This kind of single-read sampling approach is implemented in the popular software tool <a href="https://github.com/stschiff/sequenceTools">pileupCaller</a>.</p>
+<p>In VCF format, a diploid genotype call is encoded via entries such as <code>0/1</code> or <code>1/1</code>, while haploid calls are encoded as <code>0</code> or <code>1</code>. Even missing information has this feature: <code>./.</code> (diploid) and <code>.</code> (haploid). In contrast, in Eigenstrat and Plink, genotypes are always stored as diploids. This is OK for most analyses, but for some calculations that involve allele frequency estimates and their error, for example to compute FST or some F-Statistics, we need to know the total number of haplotypes underlying the data. That is way, for example, our <a href="https://www.poseidon-adna.org/#/xerxes">xerxes</a> analysis tool requires GenotypePloidy information from <a href="https://www.poseidon-adna.org/#/janno_details">Janno files</a>.</p>
+<p>Another interesting feature of the VCF format is its flexibility. There is a simple way to define new data fields to be specified per Variant or even per sample. Those fields can be numbers or strings, and even lists of numbers. This is being used by pileupCaller to report the number of reads for each of the four bases A,C,T,G on the forward and the backward strand (using the <a href="https://github.com/stschiff/sequenceTools?tab=readme-ov-file#vcf-output">custom-defined DP8 field</a>).</p>
+<p>I think the VCF format has been under-appreciated by the Ancient DNA Community and I think it’s time we use it more. Poseidon is now ready for it, and its flagship tool <code>trident</code> now supports VCF reading (introduced in [version 1.5.7.0]https://github.com/poseidon-framework/poseidon-hs/blob/master/CHANGELOGRELEASE.md#vcf-support-for-genotype-data)) and with the next upcoming release 1.6.7.0 also writing (for example using <code>trident genoconvert</code> or <code>trident forge</code>), but users should be aware that VCF files from trident will have only minimal features, since the underlying data often then comes from PLINK or EIGENSTRAT files, which do not support the kind of rich per-variant-per-sample information that many VCF users might expect. Nevertheless, the output is well-formed and valid VCF, and can be viewed for example using <a href="https://samtools.github.io/bcftools/bcftools.html">bcftools</a>. Although already implemented in trident, the <a href="">Poseidon-Schema v 2.7.1</a> does not yet contain VCF. So this feature for now should be considered experimental. We are formally specifying VCF as official Poseidon Genotype-Format in the <a href="https://github.com/poseidon-framework/poseidon-schema/pull/93">upcoming 3.0.0 release</a>.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

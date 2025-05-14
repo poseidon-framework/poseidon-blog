@@ -1,9 +1,9 @@
 ---
 title: "Embracing the Variant Call Format in Ancient Genomics"
 author: "Stephan Schiffels"
-date: "2025-02-11"
+date: "2025-05-14"
 categories: [news,features]
-description: More control -- Ordered forges
+description: VCF files supported by Poseidon
 ---
 
 ![Image of a sample of a VCF file, colored to highlight different columns in VSCode dark mode](images_misc/vcf_sample.jpg)
