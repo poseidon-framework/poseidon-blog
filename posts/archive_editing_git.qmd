@@ -28,7 +28,7 @@ All of these are met in my case. But two additional challenges complicate the ma
 ### 1. Clone the fork repository {#sec-clone}
 
 ```bash
-GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/USERNAME/FORK-OF-THE-REPOSITORY
+GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:USERNAME/FORK-OF-THE-REPOSITORY.git
 ```
 
 Note that this workflow assumes that you have installed and configured Git LFS on your system. Cloning the repo with the `GIT_LFS_SKIP_SMUDGE` environment variable prevents downloading the LFS-tracked files despite Git LFS being enabled. This saves bandwidth and costs for us on GitHub.
