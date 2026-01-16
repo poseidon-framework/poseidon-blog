@@ -49,6 +49,8 @@ git lfs pull --include "PATH-TO-FILE"
 
 To validate a package completely it can be necessary to also access the genotype data. But because we cloned above with `GIT_LFS_SKIP_SMUDGE=1`, this data is not in our clone now. Fortunately we can selectively download it. `PATH-TO-FILE` can also include wildcards.
 
+
+
 ### 4. Edit the files as desired
 
 Remember to commit the changes.
