@@ -31,7 +31,7 @@ All of these are met in my case. But two additional challenges complicate the ma
 GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:USERNAME/FORK-OF-THE-REPOSITORY.git
 ```
 
-Note that this workflow assumes that you have installed and configured Git LFS on your system. Cloning the repo with the `GIT_LFS_SKIP_SMUDGE` environment variable prevents downloading the LFS-tracked files despite Git LFS being enabled. This saves bandwidth and costs for us on GitHub.
+Note that this workflow assumes that you have installed and configured Git LFS on your system. Cloning the repo with the `GIT_LFS_SKIP_SMUDGE` environment variable prevents downloading the large LFS-tracked files despite Git LFS being enabled.
 
 ### 2. (if necessary) Switch to the pull request branch
 
@@ -43,13 +43,21 @@ This is only necessary, if the PR branch is not the main/master branch.
 
 ### 3. (if necessary) Download individual LFS-tracked files
 
+To validate a package completely it can be necessary to also access the genotype data. But because we cloned above with `GIT_LFS_SKIP_SMUDGE=1`, this data is not in our clone now. Fortunately we can selectively download it. Usually this works with `git lfs pull --include "PATH-TO-FILE"`.
+
+But the Poseidon archive LFS setup complicates matters here, when accessing LFS data from a PR. This yet-to-be-merged data is usually not available from <https://lfs.poseidon-adna.org> yet. We thus have to either modify the `.lfsconfig` file by e.g. commenting out the `url` field, so that Git defaults back to GitHub for the LFS storage, or explicitly access this storage as follows:
+
 ```bash
-git lfs pull --include "PATH-TO-FILE"
+git -c lfs.url=git@github.com:poseidon-framework/community-archive.git lfs pull \
+    --include "PATH-TO-FILE"
 ```
 
-To validate a package completely it can be necessary to also access the genotype data. But because we cloned above with `GIT_LFS_SKIP_SMUDGE=1`, this data is not in our clone now. Fortunately we can selectively download it. `PATH-TO-FILE` can also include wildcards.
+`PATH-TO-FILE` can also include wildcards.
 
-
+::: {.callout-tip}
+## Edit note: 2026-01-16
+The reference to <https://lfs.poseidon-adna.org> was added to this blog post after a major change in the Poseidon LFS infrastructure.
+:::
 
 ### 4. Edit the files as desired
 
