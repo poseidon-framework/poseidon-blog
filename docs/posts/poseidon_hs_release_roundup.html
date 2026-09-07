@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Clemens Schmid">
-<meta name="dcterms.date" content="2023-09-24">
-<meta name="description" content="Here is the poster we presented at the ISBA conference in Tartu, Estonia.">
+<meta name="author" content="Stephan Schiffels">
+<meta name="dcterms.date" content="2026-09-07">
+<meta name="description" content="A roundup of the biggest changes in poseidon-hs since our last update, from Poseidon v3.0.0 support to handling huge archives">
 
-<title>Poseidon Blog - The Poseidon poster at ISBA 2023</title>
+<title>Poseidon Blog - A year of trident and xerxes: catching up on recent releases</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,16 +114,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Poseidon poster at ISBA 2023</h1>
+<h1 class="title">A year of trident and xerxes: catching up on recent releases</h1>
   <div class="quarto-categories">
     <div class="quarto-category">news</div>
-    <div class="quarto-category">conferences</div>
+    <div class="quarto-category">features</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Here is the poster we presented at the ISBA conference in Tartu, Estonia.
+    A roundup of the biggest changes in poseidon-hs since our last update, from Poseidon v3.0.0 support to handling huge archives
   </div>
 </div>
 
@@ -133,14 +133,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Clemens Schmid </p>
+             <p>Stephan Schiffels </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 24, 2023</p>
+      <p class="date">September 7, 2026</p>
     </div>
   </div>
   
@@ -150,44 +150,35 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The biennial meeting of the <a href="https://www.isbarch.org">International Society for Biomolecular Archaeology (ISBA)</a> is one of the key conferences for human archaeogenetic research. This years meeting, <a href="https://isba10.ut.ee">ISBA2023</a> was set to take place from 13th to 16th September in the city of Tartu in Estonia and entitled “New Horizons in Biomolecular Archaeology”. Naturally we decided to present Poseidon there to its core user group: practitioners in the field of archaeogenetics.</p>
-<p>We applied with an ambitious abstract (the full text is available at the bottom of this post) and were awarded a poster. Below we share what we came up with. We tried to explain what motivates us to work on Poseidon and which components of the framework are already available. This includes the package format specification, the software tools, the public archives and the Minotaur workflow.</p>
-<p>Thiseas C. Lamnidis and I finally presented the poster as the result of collaborative work with Ayshin Ghalichi, Dhananjaya B. A. Mudiyanselage, Wolfgang Haak and Stephan Schiffels in Tartu.</p>
-<p>You can download the complete poster in .pdf format <a href="isba2023poster_media/Poseidon_Poster_ISBA2023.pdf">here</a>.</p>
-<p><img src="isba2023poster_media/overview.png" class="img-fluid"></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/thePoseidonPackage.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/thePublicArchives.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/theSoftwareTools.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="isba2023poster_media/theMinotaurWorkflow.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p><strong>Poseidon – Powerful and FAIR archaeogenetic genotype data management</strong></p>
-<p>The increase in ancient human DNA data requires robust yet flexible solutions to store and distribute it. While raw sequencing data is generally shared in large archives (e.g.&nbsp;ENA or SRA), no such standard exists for derived genotype data and contextual, spatiotemporal information. This raises concrete issues:</p>
-<ul>
-<li>Ancient individuals only constitute meaningful observations if their spatiotemporal provenience is known. Current practice renders it difficult to maintain the connection between archaeological context and sampled genomic data.</li>
-<li>Specific results can only be reproduced with genotypes. Current practice does not include their publication.</li>
-<li>Meta-analyses involving large amounts of data require tedious curation. Available public datasets have high key-person-risk, lag behind and are not well machine-readable.</li>
-</ul>
-<p>To tackle these issues we present <strong>Poseidon</strong>, a computational framework including an open data format, software, and community-maintained archives to enable standardised and FAIR handling of archaeogenetic data. A Poseidon <em>package</em> bundles genotypes in industry-standard formats with human- and machine-readable context data, storing sample-wise information on spatiotemporal origin and genetic data quality. Through collective effort we already prepared 100+ packages for published studies in an open online repository.</p>
-<p>In our talk we want to specifically highlight two components of the framework:</p>
-<ol type="1">
-<li>A computational platform to process raw sequencing data directly from archive data (e.g.&nbsp;ENA), with a public interface for package curators to control processing parameters. Infrastructure will be provided by MPI-EVA, with community access and continuous integration provided via GitHub.</li>
-<li>Command line software for package validation, manipulation and analysis. Validating structural integrity is a core task to honour the FAIR promise. The reliable structure then allows for advanced stream processing and co-analysis of genomic and contextual information.</li>
-</ol>
+<p>It has been a while since I last blogged about new features in <a href="https://www.poseidon-adna.org/#/trident">trident</a> and <a href="https://www.poseidon-adna.org/#/xerxes">xerxes</a>, our command-line tools for managing and analysing Poseidon packages. That doesn’t mean development has been quiet – quite the opposite. Since the <a href="../posts/vcf_post.html">VCF-writing update</a> last year, <code>poseidon-hs</code> has gone through seven releases, up to the current <a href="https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.2.2.1">v2.2.2.1</a>. Much of that work was driven by my colleague <strong>Clemens Schmid</strong>, who has done an enormous amount of the heavy lifting on the Haskell side over the past year – so credit for most of what follows really belongs to him. As always, the full details of every change are in our <a href="https://github.com/poseidon-framework/poseidon-hs/blob/master/CHANGELOGRELEASE.md">release changelog</a>; here are the highlights.</p>
+<section id="trident-and-xerxes-are-now-one-project" class="level2">
+<h2 class="anchored" data-anchor-id="trident-and-xerxes-are-now-one-project">trident and xerxes are now one project</h2>
+<p>Perhaps the biggest structural change is that <code>xerxes</code>, previously developed in its own repository (<code>poseidon-analysis-hs</code>), has been merged into <code>poseidon-hs</code> (as of <a href="https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.0.0.0">v2.0.0.0</a>). In the past, <code>xerxes</code> releases tended to lag behind <code>trident</code>, so features and fixes in the shared codebase reached the two tools at different times. Now both are built and versioned together from the same repository, which should make it much easier to keep them in sync going forward.</p>
+</section>
+<section id="ready-for-poseidon-v3.0.0" class="level2">
+<h2 class="anchored" data-anchor-id="ready-for-poseidon-v3.0.0">Ready for Poseidon v3.0.0</h2>
+<p>With <a href="https://github.com/poseidon-framework/poseidon-hs/releases/tag/v1.7.0.0">v1.7.0.0</a>, <code>trident</code> gained full support for the new <a href="https://www.poseidon-adna.org/#/changelog">Poseidon schema v3.0.0</a>. Reading is version-aware, so older packages continue to work, while everything <code>trident</code> writes now follows the latest schema. As part of this work, <code>list</code> and <code>validate</code> gained the ability to check for mandatory <code>.janno</code>/<code>.ssf</code> columns, and <code>serve</code> learned to mark packages as “retired” so that outdated ones can be hidden from the public archives without deleting them.</p>
+</section>
+<section id="handling-really-big-archives" class="level2">
+<h2 class="anchored" data-anchor-id="handling-really-big-archives">Handling really big archives</h2>
+<p>With the AADR dataset growing past 4GB per package, our server encountered new challenges of handling so large data. <a href="https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.1.0.0">v2.1.0.0</a> reworked zipping and unzipping to stream data directly from disk instead of relying on precomputed <code>.zip</code> files, so <code>trident serve</code> and <code>trident fetch</code> can now handle these oversized packages.</p>
+</section>
+<section id="improving-genotype-data-handling" class="level2">
+<h2 class="anchored" data-anchor-id="improving-genotype-data-handling">Improving genotype data handling</h2>
+<p>In the most recent release, v2.2.2.1, we introduced <strong>ploidy checks</strong>: if a sample is marked <code>haploid</code> in the <code>Genotype_Ploidy</code> column but its genotype data is actually heterozygous, <code>trident validate</code> now catches this inconsistency. This matters in particular for <code>xerxes</code>, which relies on ploidy information being correct for several of its statistics. And earlier in <a href="https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.1.0.0">v2.1.0.0</a>, we made merging genotype data across packages considerably smarter: SNPs affected by strand flips (e.g.&nbsp;<code>A/C</code> in one package, <code>T/G</code> in another) are now automatically detected and, optionally, corrected with the new <code>--strandCheck</code> flag, rather than silently dropped as before.</p>
+</section>
+<section id="a-more-forgiving-forge-language" class="level2">
+<h2 class="anchored" data-anchor-id="a-more-forgiving-forge-language">A more forgiving forge language</h2>
+<p><code>forge</code>’s entity-selection language – the mini-language you use to pick individuals, groups and packages – got two nice improvements in v2.2.2.1. First, group and individual names containing reserved characters (think <code>Belgium_&lt;1000BC</code>, which shows up in AADR-derived data and would break our previous <code>forge</code> version) can now be safely wrapped in quotes, e.g.&nbsp;<code>"Belgium_&lt;1000BC"</code>. Second, the old <code>--preservePyml</code> flag was generalised into <code>--preserve</code>, which, when forging from a single source package, keeps not just the relevant <code>POSEIDON.yml</code> fields but also the column order of the <code>.janno</code> file and the entry order of the <code>.bib</code> file – handy if you want the diff between input and output package to stay minimal. There’s also a new opt-in <code>Source_Package</code> column (<code>--addTrace</code>) that records which original package and version each sample came from, so you can trace a forged sample back to its origin even after several rounds of forging.</p>
+</section>
+<section id="vcf-closing-the-loop" class="level2">
+<h2 class="anchored" data-anchor-id="vcf-closing-the-loop">VCF, closing the loop</h2>
+<p>Since <a href="../posts/vcf_post.html">our earlier post on VCF support</a>, <code>trident</code> has also gained the ability to <em>write</em> VCF files, not just read them (<a href="https://github.com/poseidon-framework/poseidon-hs/releases/tag/v1.6.7.1">v1.6.7.1</a>), available via <code>--outFormat VCF</code> in <code>forge</code> and <code>genoconvert</code>. The same release added an HTML front-end to <code>trident serve</code>, so the <a href="https://server.poseidon-adna.org/explorer">public Poseidon server</a> now offers a human-browsable view of the archives alongside its JSON API.</p>
+</section>
+<section id="smaller-quality-of-life-fixes" class="level2">
+<h2 class="anchored" data-anchor-id="smaller-quality-of-life-fixes">Smaller quality-of-life fixes</h2>
+<p>A lot of the value in these releases is in the small stuff: much more precise <code>.janno</code> parsing error messages that point to the exact broken column and value; a new line-ending check to catch DOS/UNIX mismatches before they cause checksum headaches; a more lenient PLINK <code>.bim</code> parser that accepts <code>.</code> for missing alleles; ORCID support for contributors added via <code>rectify --newContributors</code>; and a couple of nasty Unicode-encoding bugs fixed in <code>.janno</code> writing and <code>list --jannoColumn</code>. None of these make headlines on their own, but together they make day-to-day work with Poseidon packages noticeably smoother.</p>
+<p>That’s the short version – for the full story, including all the bug fixes and internal changes, head over to the <a href="https://github.com/poseidon-framework/poseidon-hs/blob/master/CHANGELOGRELEASE.md">CHANGELOGRELEASE.md</a> on GitHub. Thanks again to Clemens Schmid for driving so much of this forward, and as always, if you run into issues, please <a href="https://github.com/poseidon-framework/poseidon-hs/issues">let us know</a>.</p>
 
 
 </section>

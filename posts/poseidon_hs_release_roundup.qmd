@@ -1,0 +1,39 @@
+---
+title: "A year of trident and xerxes: catching up on recent releases"
+author: "Stephan Schiffels"
+date: "2026-09-07"
+categories: [news, features]
+description: A roundup of the biggest changes in poseidon-hs since our last update, from Poseidon v3.0.0 support to handling huge archives
+---
+
+It has been a while since I last blogged about new features in [trident](https://www.poseidon-adna.org/#/trident) and [xerxes](https://www.poseidon-adna.org/#/xerxes), our command-line tools for managing and analysing Poseidon packages. That doesn't mean development has been quiet -- quite the opposite. Since the [VCF-writing update](vcf_post.qmd) last year, `poseidon-hs` has gone through seven releases, up to the current [v2.2.2.1](https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.2.2.1). Much of that work was driven by my colleague **Clemens Schmid**, who has done an enormous amount of the heavy lifting on the Haskell side over the past year -- so credit for most of what follows really belongs to him. As always, the full details of every change are in our [release changelog](https://github.com/poseidon-framework/poseidon-hs/blob/master/CHANGELOGRELEASE.md); here are the highlights.
+
+## trident and xerxes are now one project
+
+Perhaps the biggest structural change is that `xerxes`, previously developed in its own repository (`poseidon-analysis-hs`), has been merged into `poseidon-hs` (as of [v2.0.0.0](https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.0.0.0)). In the past, `xerxes` releases tended to lag behind `trident`, so features and fixes in the shared codebase reached the two tools at different times. Now both are built and versioned together from the same repository, which should make it much easier to keep them in sync going forward.
+
+## Ready for Poseidon v3.0.0
+
+With [v1.7.0.0](https://github.com/poseidon-framework/poseidon-hs/releases/tag/v1.7.0.0), `trident` gained full support for the new [Poseidon schema v3.0.0](https://www.poseidon-adna.org/#/changelog). Reading is version-aware, so older packages continue to work, while everything `trident` writes now follows the latest schema. As part of this work, `list` and `validate` gained the ability to check for mandatory `.janno`/`.ssf` columns, and `serve` learned to mark packages as "retired" so that outdated ones can be hidden from the public archives without deleting them.
+
+## Handling really big archives
+
+With the AADR dataset growing past 4GB per package, our server encountered new challenges of handling so large data. [v2.1.0.0](https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.1.0.0) reworked zipping and unzipping to stream data directly from disk instead of relying on precomputed `.zip` files, so `trident serve` and `trident fetch` can now handle these oversized packages.
+
+## Improving genotype data handling
+
+In the most recent release, v2.2.2.1, we introduced **ploidy checks**: if a sample is marked `haploid` in the `Genotype_Ploidy` column but its genotype data is actually heterozygous, `trident validate` now catches this inconsistency. This matters in particular for `xerxes`, which relies on ploidy information being correct for several of its statistics. And earlier in [v2.1.0.0](https://github.com/poseidon-framework/poseidon-hs/releases/tag/v2.1.0.0), we made merging genotype data across packages considerably smarter: SNPs affected by strand flips (e.g. `A/C` in one package, `T/G` in another) are now automatically detected and, optionally, corrected with the new `--strandCheck` flag, rather than silently dropped as before.
+
+## A more forgiving forge language
+
+`forge`'s entity-selection language -- the mini-language you use to pick individuals, groups and packages -- got two nice improvements in v2.2.2.1. First, group and individual names containing reserved characters (think `Belgium_<1000BC`, which shows up in AADR-derived data and would break our previous `forge` version) can now be safely wrapped in quotes, e.g. `"Belgium_<1000BC"`. Second, the old `--preservePyml` flag was generalised into `--preserve`, which, when forging from a single source package, keeps not just the relevant `POSEIDON.yml` fields but also the column order of the `.janno` file and the entry order of the `.bib` file -- handy if you want the diff between input and output package to stay minimal. There's also a new opt-in `Source_Package` column (`--addTrace`) that records which original package and version each sample came from, so you can trace a forged sample back to its origin even after several rounds of forging.
+
+## VCF, closing the loop
+
+Since [our earlier post on VCF support](vcf_post.qmd), `trident` has also gained the ability to *write* VCF files, not just read them ([v1.6.7.1](https://github.com/poseidon-framework/poseidon-hs/releases/tag/v1.6.7.1)), available via `--outFormat VCF` in `forge` and `genoconvert`. The same release added an HTML front-end to `trident serve`, so the [public Poseidon server](https://server.poseidon-adna.org/explorer) now offers a human-browsable view of the archives alongside its JSON API.
+
+## Smaller quality-of-life fixes
+
+A lot of the value in these releases is in the small stuff: much more precise `.janno` parsing error messages that point to the exact broken column and value; a new line-ending check to catch DOS/UNIX mismatches before they cause checksum headaches; a more lenient PLINK `.bim` parser that accepts `.` for missing alleles; ORCID support for contributors added via `rectify --newContributors`; and a couple of nasty Unicode-encoding bugs fixed in `.janno` writing and `list --jannoColumn`. None of these make headlines on their own, but together they make day-to-day work with Poseidon packages noticeably smoother.
+
+That's the short version -- for the full story, including all the bug fixes and internal changes, head over to the [CHANGELOGRELEASE.md](https://github.com/poseidon-framework/poseidon-hs/blob/master/CHANGELOGRELEASE.md) on GitHub. Thanks again to Clemens Schmid for driving so much of this forward, and as always, if you run into issues, please [let us know](https://github.com/poseidon-framework/poseidon-hs/issues).
